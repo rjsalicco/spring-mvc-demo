@@ -1,0 +1,11 @@
+# Compile Source #
+##################
+
+
+# .jar Files #
+##############
+**.jar
+
+# .class Files #
+################
+**.class
