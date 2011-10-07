@@ -11,5 +11,7 @@
 	
 		<h1>spring-mvc-demo</h1>
 		
+		<a href="item">item</a>
+		
 	</body>
 </html>

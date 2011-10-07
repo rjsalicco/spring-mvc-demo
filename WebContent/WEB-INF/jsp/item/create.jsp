@@ -5,6 +5,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<link rel="stylesheet" href="/static/stylesheets/main.css" type="text/css">
 		<title>spring-mvc-demo</title>
 	</head>
 	<body>

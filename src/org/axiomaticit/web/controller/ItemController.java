@@ -38,12 +38,12 @@ public class ItemController {
 		List<Item> items = new ArrayList<Item>();
 		
 		Item item1 = new Item();
-		item1.setAuthor("RJ");
+		item1.setAuthor("RJ Salicco");
 		item1.setTitle("The Title 1");
 		item1.setContent("This is some incredible content. Realistically it is some great content.");
 		
 		Item item2 = new Item();
-		item2.setAuthor("RJ");
+		item2.setAuthor("RJ Salicco");
 		item2.setTitle("The Title 1");
 		item2.setContent("This is some incredible content. Realistically it is some great content.");
 		
@@ -60,7 +60,7 @@ public class ItemController {
 	public ModelAndView getItem(@PathVariable Long id) {
 		
 		Item item = new Item();
-		item.setAuthor("RJ");
+		item.setAuthor("RJ Salicco");
 		item.setTitle("The Title");
 		item.setContent("This is some incredible content. Realistically it is some great content.");
 		
