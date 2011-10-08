@@ -11,6 +11,8 @@
 		
 		<p>Item</p>
 	
+		<p><a href="<c:url value='/item' />">item list</a></p>
+	
 		Id: ${item.id}
 		<br/>
 		Title: ${item.title}

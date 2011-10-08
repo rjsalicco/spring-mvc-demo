@@ -38,17 +38,26 @@ public class ItemController {
 		List<Item> items = new ArrayList<Item>();
 		
 		Item item1 = new Item();
+		item1.setId(new Long(1));
 		item1.setAuthor("RJ Salicco");
 		item1.setTitle("The Title 1");
 		item1.setContent("This is some incredible content. Realistically it is some great content.");
 		
 		Item item2 = new Item();
+		item2.setId(new Long(2));
 		item2.setAuthor("RJ Salicco");
-		item2.setTitle("The Title 1");
+		item2.setTitle("The Title 2");
 		item2.setContent("This is some incredible content. Realistically it is some great content.");
+		
+		Item item3 = new Item();
+		item3.setId(new Long(3));
+		item3.setAuthor("RJ Salicco");
+		item3.setTitle("The Title 3");
+		item3.setContent("This is some incredible content. Realistically it is some great content.");
 		
 		items.add(item1);
 		items.add(item2);
+		items.add(item3);
 		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("item/list");
@@ -60,6 +69,7 @@ public class ItemController {
 	public ModelAndView getItem(@PathVariable Long id) {
 		
 		Item item = new Item();
+		item.setId(id);
 		item.setAuthor("RJ Salicco");
 		item.setTitle("The Title");
 		item.setContent("This is some incredible content. Realistically it is some great content.");

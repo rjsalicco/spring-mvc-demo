@@ -18,10 +18,10 @@ public class ItemValidator implements Validator {
 		if(item.getAuthor() == null || item.getAuthor().length() < 1)
 			errors.rejectValue("author", "item.author.error");
 		
-		if(item.getContent() == null || item.getContent().length() < 10)
-			errors.rejectValue("content", "item.content.error");
-		
 		if(item.getTitle() == null || item.getTitle().length() < 1)
 			errors.rejectValue("title", "item.title.error");
+		
+		if(item.getContent() == null || item.getContent().length() < 10)
+			errors.rejectValue("content", "item.content.error");
 	}
 }

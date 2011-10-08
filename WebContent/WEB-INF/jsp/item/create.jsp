@@ -11,6 +11,9 @@
 	<body>
 		
 		<p>Create Item</p>
+		
+		<p><a href="<c:url value='/item' />">item list</a></p>
+		
 		<form:form modelAttribute="item" action="save" method="POST">
 			<form:errors path="*" cssStyle="color: red;"/>
 			<br />
