@@ -9,3 +9,7 @@
 # .class Files #
 ################
 **.class
+
+# build dir #
+#############
+/build

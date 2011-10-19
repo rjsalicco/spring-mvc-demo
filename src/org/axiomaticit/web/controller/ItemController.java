@@ -1,12 +1,13 @@
 package org.axiomaticit.web.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
 
+import org.axiomaticit.dao.Dao;
 import org.axiomaticit.model.Item;
 import org.axiomaticit.validator.ItemValidator;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
@@ -20,6 +21,9 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/item")
 public class ItemController {
 
+	@Autowired
+	private Dao<Item> daoImpl;
+	
 	public ItemController() {}
 	
 	@InitBinder
@@ -35,29 +39,7 @@ public class ItemController {
 	@RequestMapping(value="/list", method=RequestMethod.GET)
 	public ModelAndView getItems() {
 		
-		List<Item> items = new ArrayList<Item>();
-		
-		Item item1 = new Item();
-		item1.setId(new Long(1));
-		item1.setAuthor("RJ Salicco");
-		item1.setTitle("The Title 1");
-		item1.setContent("This is some incredible content. Realistically it is some great content.");
-		
-		Item item2 = new Item();
-		item2.setId(new Long(2));
-		item2.setAuthor("RJ Salicco");
-		item2.setTitle("The Title 2");
-		item2.setContent("This is some incredible content. Realistically it is some great content.");
-		
-		Item item3 = new Item();
-		item3.setId(new Long(3));
-		item3.setAuthor("RJ Salicco");
-		item3.setTitle("The Title 3");
-		item3.setContent("This is some incredible content. Realistically it is some great content.");
-		
-		items.add(item1);
-		items.add(item2);
-		items.add(item3);
+		List<Item> items = (List<Item>) daoImpl.getAll(Item.class);
 		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("item/list");
@@ -66,13 +48,12 @@ public class ItemController {
 	}
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
-	public ModelAndView getItem(@PathVariable Long id) {
+	public ModelAndView getItem(@PathVariable String id) {
+		
 		
 		Item item = new Item();
 		item.setId(id);
-		item.setAuthor("RJ Salicco");
-		item.setTitle("The Title");
-		item.setContent("This is some incredible content. Realistically it is some great content.");
+		item = (Item) daoImpl.getById(item);
 		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("item/show");
@@ -92,9 +73,17 @@ public class ItemController {
 	
 	@RequestMapping(value="/save", method=RequestMethod.POST)
 	public ModelAndView saveItem(@Valid Item item, BindingResult result) {
+		
 		if(result.hasErrors()) {
 			return newItem();
 		}
+		
+		daoImpl.save(item);
+		
 		return getItems();
+	}
+	
+	public void setDao(Dao<Item> daoImpl) {
+		this.daoImpl = daoImpl;
 	}
 }
