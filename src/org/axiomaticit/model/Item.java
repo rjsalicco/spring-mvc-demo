@@ -33,8 +33,7 @@ public class Item implements Serializable {
 	
 	public Item () { }
 	
-	public Item(String id, String title, String content, String author) {
-		this.id = id;
+	public Item(String title, String content, String author) {
 		this.title = title;
 		this.content = content;
 		this.author = author;
