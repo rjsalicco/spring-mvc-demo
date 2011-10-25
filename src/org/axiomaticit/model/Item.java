@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
@@ -22,14 +24,15 @@ public class Item implements Serializable {
 	@GeneratedValue(generator="system-uuid")
 	@GenericGenerator(name="system-uuid", strategy = "uuid")
 	private String id;
+	
 	@Column(name="title")
 	private String title;
+	
 	@Column(name="content")
 	private String content;
+	
 	@Column(name="author")
 	private String author;
-	
-	private int hashCode;
 	
 	public Item () { }
 	
@@ -45,18 +48,21 @@ public class Item implements Serializable {
 	public void setId(String id) {
 		this.id = id;
 	}
+	
 	public String getTitle() {
 		return this.title;
 	}
 	public void setTitle(String title) {
 		this.title = title;
 	}
+	
 	public String getContent() {
 		return this.content;
 	}
 	public void setContent(String content) {
 		this.content = content;
 	}
+	
 	public String getAuthor() {
 		return this.author;
 	}
@@ -65,6 +71,10 @@ public class Item implements Serializable {
 	}
 	
 	public boolean equals(Object obj) {
+		if(obj  == null)
+			return false;
+		if(obj == this)
+			return true;
 		if(obj instanceof Item)
 			return equals((Item) obj);
 		
@@ -72,17 +82,18 @@ public class Item implements Serializable {
 	}
 	
 	public boolean equals(Item item) {
-		if(item.getTitle().equals(this.getTitle()) && item.getAuthor().equals(this.getAuthor()))
-			return true;
-		
-		return false;
+		return new EqualsBuilder().
+				append(id, item.getId()).
+				append(author, item.getAuthor()).
+				append(title, item.getTitle()).
+				isEquals();
 	}
 	
 	public int hashCode() {
-		if(this.getTitle() != null && this.getAuthor() != null) {
-			hashCode ^= this.getTitle().hashCode() + this.getAuthor().hashCode();
-			return hashCode;
-		}
-		return super.hashCode();
+		return new HashCodeBuilder(3,5).
+				append(id).
+				append(author).
+				append(title).
+				toHashCode();
 	}
 }

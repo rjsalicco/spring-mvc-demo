@@ -8,12 +8,13 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 public class DaoImpl<T extends Item> extends HibernateDaoSupport implements Dao<T> {
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public T getById(T t) {
 		return (T) getHibernateTemplate().get(t.getClass(), t.getId());
 	}
 
 	@Override
-	public Collection<T> getAll(Class clazz) {
+	public Collection<T> getAll(Class<T> clazz) {
 		return getHibernateTemplate().loadAll(clazz);
 	}
 

@@ -24,8 +24,6 @@ public class ItemController {
 	@Autowired
 	private Dao<Item> daoImpl;
 	
-	public ItemController() {}
-	
 	@InitBinder
 	protected void initBinder(WebDataBinder binder) {
 		binder.setValidator(new ItemValidator());
