@@ -28,11 +28,23 @@
 			<map>
 				<entry key="html" value="text/html" />
 				<entry key="json" value="application/json" />
+				<entry key="xml" value="application/xml" />
 			</map>
 		</property>
 		<property name="defaultViews">
 			<list>
 				<bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView" />
+				<bean class="org.springframework.web.servlet.view.xml.MarshallingView">
+					<constructor-arg>
+						<bean class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+				   			<property name="classesToBeBound">
+								<list>
+					   				<value>org.axiomaticit.model.Item</value>
+								</list>
+				   			</property>
+						</bean>
+					</constructor-arg>
+		  		</bean>
 			</list>
 		</property>
 	</bean>
