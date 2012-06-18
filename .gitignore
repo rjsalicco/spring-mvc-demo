@@ -13,3 +13,8 @@
 # build dir #
 #############
 /build
+/target
+
+# misc IDE Files #
+##################
+.settings*
