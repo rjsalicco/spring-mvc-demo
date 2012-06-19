@@ -4,14 +4,17 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<link rel="stylesheet" href="/static/stylesheets/main.css" type="text/css">
+		<link rel="stylesheet" href="<c:url value="/static/stylesheets/main.css" />" type="text/css">
 		<title>spring-mvc-demo</title>
 	</head>
 	<body>
 		
-		<p>Item List</p>
+		<p>item list</p>
 	
-		<p><a href="<c:url value='/item/new' />">new item</a></p>
+		<p>
+			<a href="<c:url value='/' />">home</a> |
+			<a href="<c:url value='/item/new' />">new item</a>
+		</p>
 	
 		<table>
 			<tr>

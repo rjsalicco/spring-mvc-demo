@@ -5,31 +5,37 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<link rel="stylesheet" href="/static/stylesheets/main.css" type="text/css">
+		<link rel="stylesheet" href="<c:url value="/static/stylesheets/main.css" />" type="text/css">
 		<title>spring-mvc-demo</title>
 	</head>
 	<body>
 		
-		<p>Create Item</p>
+		<p>create item</p>
 		
-		<p><a href="<c:url value='/item' />">item list</a></p>
+		<p>
+			<a href="<c:url value='/' />">home</a> |
+			<a href="<c:url value='/item' />">item list</a>
+		</p>
 		
 		<form:form modelAttribute="item" action="save" method="POST">
-			<form:errors path="*" cssStyle="color: red;"/>
-			<br />
-			<form:label path="author" for="author">author</form:label>
-			<br />
-			<form:input path="author" id="author"/>
-			<br/>
-			<form:label path="title" for="title">title</form:label>
-			<br />
-			<form:input path="title" id="title"/>
-			<br/>
-			<form:label path="content" for="content">content</form:label>
-			<br />
-			<form:textarea path="content" id="content"/>
-			<br/>
-			<input type="submit" value="save" />
+			<p>
+				<form:errors path="*" />
+			</p>
+			<p>
+				<form:label path="author" for="author">author</form:label>
+				<form:input path="author" id="author"/>
+			</p>
+			<p>
+				<form:label path="title" for="title">title</form:label>
+				<form:input path="title" id="title"/>
+			</p>
+			<p>
+				<form:label path="content" for="content">content</form:label>
+				<form:textarea path="content" id="content"/>
+			</p>
+			<p>
+				<input type="submit" value="save" />
+			</p>
 		</form:form>
 		
 	</body>

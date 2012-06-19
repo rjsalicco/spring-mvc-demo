@@ -10,6 +10,11 @@
 
 	<context:component-scan base-package="org.axiomaticit" />
 	
+	<!-- Configures Static File Location -->
+	<mvc:resources mapping="/static/**" location="/static/" />
+	
+	<mvc:annotation-driven />
+	
 	<!-- Configures Handler Interceptors -->
 	<mvc:interceptors>
     	<!-- Changes the locale when a 'locale' request parameter is sent; e.g. /?locale=de -->
@@ -49,7 +54,7 @@
 		</property>
 	</bean>
 	
-	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:order="2">
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver" p:order="2">
 		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
 		<property name="prefix" value="/WEB-INF/jsp/" />
 		<property name="suffix" value=".jsp" />
