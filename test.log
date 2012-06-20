@@ -1,9 +1,0 @@
-/*C2*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C3*/SET SCHEMA PUBLIC
-drop table items if exists
-create table items (id varchar(255) not null, author varchar(255), content varchar(255), title varchar(255), primary key (id))
-INSERT INTO ITEMS VALUES('40288183380239980138023a45e30001','rjsalicco','this is a test post.','test')
-COMMIT
-INSERT INTO ITEMS VALUES('40288183380239980138023c5d0e0002','rjsalicco','this is some awesome test content','test')
-COMMIT
