@@ -84,7 +84,7 @@
 		</property>
 		<property name="annotatedPackages">
 			<list>
-				<value>org.axiomaticit.model</value>
+				<value>org.axiomaticit</value>
 			</list>
 		</property>
 		<property name="annotatedClasses">

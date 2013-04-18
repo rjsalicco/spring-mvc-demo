@@ -48,7 +48,6 @@ public class ItemController {
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public ModelAndView getItem(@PathVariable String id) {
 		
-		
 		Item item = new Item();
 		item.setId(id);
 		item = (Item) daoImpl.getById(item);
@@ -73,7 +72,10 @@ public class ItemController {
 	public ModelAndView saveItem(@Valid Item item, BindingResult result) {
 		
 		if(result.hasErrors()) {
-			return newItem();
+			ModelAndView mav = new ModelAndView();
+			mav.setViewName("item/create");
+			mav.addObject("item", item);
+			return mav;
 		}
 		
 		daoImpl.save(item);

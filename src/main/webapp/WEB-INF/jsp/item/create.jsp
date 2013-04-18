@@ -19,7 +19,7 @@
 		
 		<form:form modelAttribute="item" action="save" method="POST">
 			<p>
-				<form:errors path="*" />
+				<form:errors path="*" cssClass="errors" />
 			</p>
 			<p>
 				<form:label path="author" for="author">author</form:label>
