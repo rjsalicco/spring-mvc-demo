@@ -1,6 +1,6 @@
 spring-mvc-demo
 ===
-Put together a demo of a Web application using Spring MVC.
+A simple demo of a Web application using Spring MVC.
 
 Run the application with mvn jetty:run.
 
