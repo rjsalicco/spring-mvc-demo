@@ -18,7 +18,7 @@ public class DaoImpl<T extends Model> extends HibernateDaoSupport implements Dao
 
 	public T save(T t) {
 		// check for empty String for 'id'
-		if(t.getId().isEmpty())
+		if(t.getId() != null && t.getId().isEmpty())
 			t.setId(null);
 		
 		getHibernateTemplate().saveOrUpdate(t);
