@@ -16,7 +16,7 @@ import org.hibernate.annotations.GenericGenerator;
 @Entity
 @Table(name="items")
 @XmlRootElement(name="item", namespace="org.axiomaticit.model")
-public class Item implements Serializable {
+public class Item extends Model implements Serializable {
 
 	private static final long serialVersionUID = 8986221083999860039L;
 	

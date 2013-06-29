@@ -58,6 +58,19 @@ public class ItemController {
 		return mav;
 	}
 	
+	@RequestMapping(value="/edit/{id}", method=RequestMethod.GET)
+	public ModelAndView editItem(@PathVariable String id) {
+		
+		Item item = new Item();
+		item.setId(id);
+		item = (Item) daoImpl.getById(item);
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("item/edit");
+		mav.addObject("item", item);
+		return mav;
+	}
+	
 	@RequestMapping(value="/new", method=RequestMethod.GET)
 	public ModelAndView newItem() {
 		Item item = new Item();
@@ -77,7 +90,7 @@ public class ItemController {
 			mav.addObject("item", item);
 			return mav;
 		}
-		
+			
 		daoImpl.save(item);
 		
 		return getItems();

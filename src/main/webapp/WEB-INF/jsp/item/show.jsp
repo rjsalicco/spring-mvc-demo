@@ -21,15 +21,16 @@
 			<span class="value">${item.id}</span>
 		</p>
 		<p>
+			<span class="label">Author:</span>
+			<span class="value">${item.author}</span>
+		</p>
+		<p>
 			<span class="label">Title:</span> 
 			<span class="value">${item.title}</span>
 		</p>
 		<p>
 			<span class="label">Content:</span> 
 			<span class="value">${item.content}</span>
-		<p>
-			<span class="label">Author:</span>
-			<span class="value">${item.author}</span>
 		</p>
 		
 	</body>
