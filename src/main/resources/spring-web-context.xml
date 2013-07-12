@@ -71,13 +71,22 @@
        <property name="password" value="${jdbc.password}" />
 	</bean>
 
+	<bean id="h2Server"
+	    class="org.h2.tools.Server"
+	    factory-method="createWebServer"
+	    init-method="start"
+	    destroy-method="stop"
+	    lazy-init="false">
+	    <constructor-arg value="-web,-webAllowOthers,-webPort,8082" />
+	</bean>
+
     <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
 		<property name="dataSource">
 			<ref bean="dataSource" />
 		</property>
 		<property name="hibernateProperties">
 			<props>
-				<prop key="hibernate.dialect">org.hibernate.dialect.HSQLDialect</prop>
+				<prop key="hibernate.dialect">org.hibernate.dialect.H2Dialect</prop>
 				<prop key="hibernate.hbm2ddl.auto">create</prop>
 				<prop key="hibernate.show.sql">true</prop>
 			</props>
