@@ -1,4 +1,4 @@
-package org.axiomaticit.dao.test;
+package org.axiomaticit.dao;
 
 import org.axiomaticit.dao.Dao;
 import org.axiomaticit.model.Item;
