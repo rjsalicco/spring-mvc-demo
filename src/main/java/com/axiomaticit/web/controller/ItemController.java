@@ -1,12 +1,9 @@
-package org.axiomaticit.web.controller;
+package com.axiomaticit.web.controller;
 
 import java.util.List;
 
 import javax.validation.Valid;
 
-import org.axiomaticit.dao.Dao;
-import org.axiomaticit.model.Item;
-import org.axiomaticit.validator.ItemValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -16,6 +13,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.axiomaticit.dao.Dao;
+import com.axiomaticit.model.Item;
+import com.axiomaticit.validator.ItemValidator;
 
 @Controller
 @RequestMapping("/item")

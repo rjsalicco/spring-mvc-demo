@@ -1,4 +1,4 @@
-package org.axiomaticit.model;
+package com.axiomaticit.model;
 
 public abstract class Model {
 

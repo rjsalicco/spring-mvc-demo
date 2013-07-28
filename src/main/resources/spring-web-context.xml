@@ -8,7 +8,7 @@
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:p="http://www.springframework.org/schema/p">
 
-	<context:component-scan base-package="org.axiomaticit" />
+	<context:component-scan base-package="com.axiomaticit" />
 	
 	<!-- Configures Static File Location -->
 	<mvc:resources mapping="/static/**" location="/static/" />
@@ -44,7 +44,7 @@
 						<bean class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
 				   			<property name="classesToBeBound">
 								<list>
-					   				<value>org.axiomaticit.model.Item</value>
+					   				<value>com.axiomaticit.model.Item</value>
 								</list>
 				   			</property>
 						</bean>
@@ -93,12 +93,12 @@
 		</property>
 		<property name="annotatedPackages">
 			<list>
-				<value>org.axiomaticit</value>
+				<value>com.axiomaticit</value>
 			</list>
 		</property>
 		<property name="annotatedClasses">
 			<list>
-				<value>org.axiomaticit.model.Item</value>
+				<value>com.axiomaticit.model.Item</value>
 			</list>
 		</property>
     </bean>
@@ -109,7 +109,7 @@
 		</property>
     </bean>
     
-    <bean id="daoImpl" class="org.axiomaticit.dao.DaoImpl">
+    <bean id="daoImpl" class="com.axiomaticit.dao.DaoImpl">
     	<property name="sessionFactory">
     		<ref local="sessionFactory" />
     	</property>

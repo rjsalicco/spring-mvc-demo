@@ -1,11 +1,12 @@
-package org.axiomaticit.dao;
+package com.axiomaticit.dao;
 
-import org.axiomaticit.dao.Dao;
-import org.axiomaticit.model.Item;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
+
+import com.axiomaticit.dao.Dao;
+import com.axiomaticit.model.Item;
 
 @ContextConfiguration(locations={"classpath:dao-test-context.xml"})
 public class DaoTest extends AbstractJUnit4SpringContextTests {

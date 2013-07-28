@@ -1,4 +1,4 @@
-package org.axiomaticit.dao;
+package com.axiomaticit.dao;
 
 import java.util.Collection;
 

@@ -1,9 +1,10 @@
-package org.axiomaticit.dao;
+package com.axiomaticit.dao;
 
 import java.util.Collection;
 
-import org.axiomaticit.model.Model;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+
+import com.axiomaticit.model.Model;
 
 public class DaoImpl<T extends Model> extends HibernateDaoSupport implements Dao<T> {
 

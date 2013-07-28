@@ -8,7 +8,7 @@
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:p="http://www.springframework.org/schema/p">
 
-	<context:component-scan base-package="org.axiomaticit" />
+	<context:component-scan base-package="com.axiomaticit" />
 	
 	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
  		<property name="location" value="classpath:jdbc.properties"/>
@@ -34,12 +34,12 @@
 		</property>
 		<property name="annotatedPackages">
 			<list>
-				<value>org.axiomaticit.model</value>
+				<value>com.axiomaticit.model</value>
 			</list>
 		</property>
 		<property name="annotatedClasses">
 			<list>
-				<value>org.axiomaticit.model.Item</value>
+				<value>com.axiomaticit.model.Item</value>
 			</list>
 		</property>
     </bean>
@@ -50,7 +50,7 @@
 		</property>
     </bean>
     
-    <bean id="daoImpl" class="org.axiomaticit.dao.DaoImpl">
+    <bean id="daoImpl" class="com.axiomaticit.dao.DaoImpl">
     	<property name="sessionFactory">
     		<ref local="sessionFactory" />
     	</property>
