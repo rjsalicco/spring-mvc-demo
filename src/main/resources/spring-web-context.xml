@@ -10,12 +10,12 @@
 
 	<context:component-scan base-package="com.axiomaticit" />
 	
-	<!-- Configures Static File Location -->
+	<!-- Configures static files Location -->
 	<mvc:resources mapping="/static/**" location="/static/" />
 	
 	<mvc:annotation-driven />
 	
-	<!-- Configures Handler Interceptors -->
+	<!-- Configures handler interceptors -->
 	<mvc:interceptors>
     	<!-- Changes the locale when a 'locale' request parameter is sent; e.g. /?locale=de -->
     	<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
@@ -23,11 +23,13 @@
     	</bean>
 	</mvc:interceptors>
 	
+	<!-- Configures message files location -->
 	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
     	<property name="basename" value="WEB-INF/resources/messages" />
     	<property name="defaultEncoding" value="UTF-8"/>
     </bean>
 	
+	<!-- Handling different content types -->
 	<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver" p:order="1">
 		<property name="mediaTypes">
 			<map>
@@ -64,6 +66,7 @@
  		<property name="location" value="classpath:jdbc.properties"/>
  	</bean>
 
+	<!-- Defining core datasource -->
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
        <property name="driverClassName" value="${jdbc.driver}" />
        <property name="url" value="${jdbc.url}" />
@@ -71,6 +74,7 @@
        <property name="password" value="${jdbc.password}" />
 	</bean>
 
+	<!-- Database server for working locally -->
 	<bean id="h2Server"
 	    class="org.h2.tools.Server"
 	    factory-method="createWebServer"
