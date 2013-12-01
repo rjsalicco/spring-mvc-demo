@@ -8,12 +8,15 @@
 
 # build dir #
 #############
+/bin
 /build
 /target
 
 # misc Files #
 ##################
 .settings*
+.classpath
+.project
 test.log
 test.properties
 test.script
