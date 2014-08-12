@@ -1,5 +1,7 @@
 package com.axiomaticit.dao;
 
+import static org.junit.Assert.*;
+
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -16,17 +18,17 @@ public class DaoTest extends AbstractJUnit4SpringContextTests {
 	
 	@Test
 	public void testGetAll() {
-		daoImpl.getAll(Item.class);
+		assertNotNull(daoImpl.getAll(Item.class));
 	}
 	
 	@Test
 	public void testGetById() {
 		Item item = daoImpl.save(new Item("title", "author", "content"));
-		daoImpl.getById(item);
+		assertNotNull(daoImpl.getById(item));
 	}
 	
 	@Test
 	public void testSave() {
-		daoImpl.save(new Item("title", "author", "content"));
+		assertNotNull(daoImpl.save(new Item("title", "author", "content")));
 	}
 }
