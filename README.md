@@ -1,5 +1,8 @@
 spring-mvc-demo
 ===
+
+=String
+
 A simple demo of a Web application using Spring MVC.
 
 1) Run the application using Maven with: mvn jetty:run
