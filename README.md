@@ -2,7 +2,7 @@ spring-mvc-demo
 ===
 
 String
-=
+====
 
 A simple demo of a Web application using Spring MVC.
 
