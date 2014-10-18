@@ -1,10 +1,7 @@
-spring-mvc-demo
-===
-
-String
-====
-
+##spring-mvc-demo
 A simple demo of a Web application using Spring MVC.
+
+####Getting Starting
 
 1) Run the application using Maven with: mvn jetty:run
 
