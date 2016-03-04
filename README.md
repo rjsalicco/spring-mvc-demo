@@ -13,4 +13,6 @@ For more information on Spring MVC, visit [springsource.org].
 
 * The database will write to this file: ~/Documents/Development/db/spring-mvc-demo. You can change this by editing the jdbc.properties file.
 
+* JSON is also supported by appending .json to the RESTful URL patterns like 'http://localhost:8080/item.json'. The RESTful support will be expanded.
+
 [springsource.org]:http://springsource.org
