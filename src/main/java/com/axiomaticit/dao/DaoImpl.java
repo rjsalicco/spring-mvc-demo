@@ -2,7 +2,8 @@ package com.axiomaticit.dao;
 
 import java.util.Collection;
 
-import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.axiomaticit.model.Model;
 
@@ -17,6 +18,7 @@ public class DaoImpl<T extends Model> extends HibernateDaoSupport implements Dao
 		return getHibernateTemplate().loadAll(clazz);
 	}
 
+	@Transactional
 	public T save(T t) {
 		// check for empty String for 'id'
 		if(t.getId() != null && t.getId().isEmpty())
