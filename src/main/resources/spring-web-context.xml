@@ -19,17 +19,17 @@
 	
 	<!-- Configures handler interceptors -->
 	<mvc:interceptors>
-    	<!-- Changes the locale when a 'locale' request parameter is sent; e.g. /?locale=de -->
-    	<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
-    		<property name="paramName" value="lang" />
-    	</bean>
+		<!-- Changes the locale when a 'locale' request parameter is sent; e.g. /?locale=de -->
+		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+			<property name="paramName" value="lang" />
+		</bean>
 	</mvc:interceptors>
 	
 	<!-- Configures message files location -->
 	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
-    	<property name="basename" value="WEB-INF/resources/messages" />
-    	<property name="defaultEncoding" value="UTF-8"/>
-    </bean>
+		<property name="basename" value="WEB-INF/resources/messages" />
+		<property name="defaultEncoding" value="UTF-8"/>
+	</bean>
 	
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver" p:order="2">
 		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
@@ -39,10 +39,10 @@
 	
 	<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
 		<property name="defaultViews">
-        	<list>
-            	<bean class="org.springframework.web.servlet.view.json.MappingJackson2JsonView" />
-        	</list>
-    	</property>
+			<list>
+				<bean class="org.springframework.web.servlet.view.json.MappingJackson2JsonView" />
+			</list>
+		</property>
 	</bean>
 	
 	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -51,23 +51,23 @@
 
 	<!-- Defining core datasource -->
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
-       <property name="driverClassName" value="${jdbc.driver}" />
-       <property name="url" value="${jdbc.url}" />
-       <property name="username" value="${jdbc.username}" />
-       <property name="password" value="${jdbc.password}" />
+		<property name="driverClassName" value="${jdbc.driver}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
 	</bean>
 
 	<!-- Database server for working locally -->
-	<bean id="h2Server"
-	    class="org.h2.tools.Server"
-	    factory-method="createWebServer"
-	    init-method="start"
-	    destroy-method="stop"
-	    lazy-init="false">
-	    <constructor-arg value="-web,-webAllowOthers,-webPort,8082" />
+	<bean id="h2Server" 
+				class="org.h2.tools.Server" 
+				factory-method="createWebServer" 
+				init-method="start" 
+				destroy-method="stop"
+				lazy-init="false">
+		<constructor-arg value="-web,-webAllowOthers,-webPort,8082" />
 	</bean>
-
-    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+	
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="dataSource">
 			<ref bean="dataSource" />
 		</property>
@@ -79,11 +79,11 @@
 			</props>
 		</property>
 		<property name="packagesToScan">
-	        <list>
-	            <value>com.axiomaticit.model</value>
-	        </list>
-    	</property>
-    </bean>
+	  	<list>
+	    	<value>com.axiomaticit.model</value>
+			</list>
+		</property>
+	</bean>
 	
 	<tx:annotation-driven />
 	
@@ -91,12 +91,12 @@
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
-    </bean>
-    
-    <bean id="daoImpl" class="com.axiomaticit.dao.DaoImpl">
-    	<property name="sessionFactory">
-    		<ref bean="sessionFactory" />
-    	</property>
-    </bean>
+	</bean>
+	
+	<bean id="daoImpl" class="com.axiomaticit.dao.DaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
 
 </beans>
