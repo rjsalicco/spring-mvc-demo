@@ -6,6 +6,13 @@
 	<packaging>war</packaging>
 	<name>spring-mvc-demo</name>
 	<description>A demo of a Spring MVC Web application.</description>
+		
+	<properties>
+		<jetty.version>9.4.7.RC0</jetty.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<springframework.version>4.2.5.RELEASE</springframework.version>
+	</properties>
+	
 	<build>
 		<plugins>
 			<plugin>
@@ -19,14 +26,10 @@
 			<plugin>
 				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
+				<version>${jetty.version}</version>
 			</plugin>
 		</plugins>
 	</build>
-
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<springframework.version>4.2.5.RELEASE</springframework.version>
-	</properties>
 
 	<dependencies>
 		<dependency>
