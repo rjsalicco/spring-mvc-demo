@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.context.MessageSource;
 
 import com.axiomaticit.dao.Dao;
 import com.axiomaticit.model.Item;
@@ -24,6 +25,8 @@ public class ItemController {
 
 	@Autowired
 	private Dao<Item> daoImpl;
+	@Autowired
+	private MessageSource messageSource;
 	
 	@InitBinder
 	protected void initBinder(WebDataBinder binder) {
@@ -97,7 +100,11 @@ public class ItemController {
 		return getItems();
 	}
 	
-	public void setDao(Dao<Item> daoImpl) {
+	public void setDaoImpl(Dao<Item> daoImpl) {
 		this.daoImpl = daoImpl;
+	}
+	
+	public void setMessageSource(MessageSource messageSource) {
+		this.messageSource = messageSource;
 	}
 }
