@@ -10,7 +10,7 @@
 	<properties>
 		<jetty.version>9.4.7.RC0</jetty.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<springframework.version>4.2.5.RELEASE</springframework.version>
+		<springframework.version>5.2.5.RELEASE</springframework.version>
 	</properties>
 	
 	<build>
